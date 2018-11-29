@@ -36,20 +36,25 @@ public class Test_11_28 {
 				gradeVO.setIntMth(intMth);
 				gList.add(gradeVO);
 			}
-/*			pw.println("==========================================================================");
-			pw.println("학번\t:\t국어점수\t:\t영어점수\t:\t수학점수");
-			pw.println("--------------------------------------------------------------------------");
-*/			
-			for(int i = 0 ; i < gList.size() ; i ++) {
+
+/*			for(int i = 0 ; i < gList.size() ; i ++) {
 				GradeVO gradeVO = new GradeVO();
 				String strNum = gList.get(i).getStrNum();
 //				int intNum = Integer.valueOf(strNum);
 				int intKor = gList.get(i).getIntKor();
 				int intEng = gList.get(i).getIntEng();
 				int intMth = gList.get(i).getIntMth();
+*/				
+			for(GradeVO vo : gList) {
+				GradeVO gradeVO = new GradeVO();
+				String strNum = vo.getStrNum();
+				int intKor = vo.getIntKor();
+				int intEng = vo.getIntEng();
+				int intMth = vo.getIntMth();
+			
 								
 //				pw.printf("%d\t:\t%8d\t:\t%8d\t:\t%8d\r\n", intNum, intKor, intEng, intMth);
-				pw.printf("%s:%d:%d:%d\r\n", strNum, intKor, intEng, intMth);
+				pw.printf("%2s:%d:%d:%d\r\n", strNum, intKor, intEng, intMth);
 			}
 			pw.close();
 			System.out.println("입력 끝");

@@ -7,13 +7,9 @@ import java.io.PrintWriter;
 public class FileWriteAndPrintWrite01 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 		String printFile = "D:/bizwork/workspace/ExFiles/filePrint01.txt";
-		
 		FileWriter fw;
 		PrintWriter pw;
-		
 		try {
 			//1. FileWriter를 append 모드로 시작하고
 			fw = new FileWriter(printFile,true);
