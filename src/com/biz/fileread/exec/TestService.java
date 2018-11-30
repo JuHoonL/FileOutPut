@@ -80,13 +80,12 @@ public class TestService {
 			} else {
 				String splitEng = vo.getStrEng();
 				String[] hint = splitEng.split("");
+				int inthint = hint.length;
 				
-				List<String> shuffWord = Arrays.asList(hint);
-				int inthint = shuffWord.size();
-				Collections.shuffle(shuffWord);
-				System.out.println("※※힌트※※  스펠링 힌트 : " + shuffWord);
-				
-				System.out.print("스펠링을 잘 조합해보세요 >> ");
+				System.out.println("※※힌트※※");
+				System.out.println("첫번째 스펠링 : " + hint[0]);
+				System.out.println("이 단어는 무엇일까요?");
+				System.out.print(">> ");
 				inputEng = scanner.nextLine();
 				
 				if(inputEng.equalsIgnoreCase(vo.getStrEng())) {
@@ -95,8 +94,7 @@ public class TestService {
 					System.out.println();
 				} else {
 					System.out.println("※※힌트※※");
-					System.out.println("첫번째 스펠링 : " + hint[0]);
-					System.out.println("이 단어는 무엇일까요?");
+					System.out.println("마지막 스펠링 : " + hint[inthint-1]); 		
 					System.out.print(">> ");
 					inputEng = scanner.nextLine();
 					
@@ -105,10 +103,11 @@ public class TestService {
 						intOk ++;
 						System.out.println();
 					} else {
-						System.out.println("※※힌트※※");
-						System.out.println("마지막 스펠링 : " + hint[inthint-1]); 		
+						List<String> shuffWord = Arrays.asList(hint);
+						Collections.shuffle(shuffWord);
+						System.out.println("※※힌트※※  스펠링 힌트 : " + shuffWord);
 						System.out.println("마지막 기회입니다. 이 단어는 무엇일까요?");
-						System.out.print(">> ");
+						System.out.print("스펠링을 잘 조합해보세요 >> ");
 						inputEng = scanner.nextLine();
 						
 						if(inputEng.equalsIgnoreCase(vo.getStrEng())) {
@@ -125,7 +124,7 @@ public class TestService {
 					}
 				}
 			}
-			if(intOk % 3 == 0) {
+			if(intOk != 0 && intOk % 10 == 0) {
 				System.out.println("================================================================");
 				System.out.println("★★★" + intOk + "개를 맞추셨습니다. 축하합니다. ★★★");
 				System.out.println("★★★ 보너스로 당신의 기회를 한번더 추가해 드리겠습니다. ★★★");
